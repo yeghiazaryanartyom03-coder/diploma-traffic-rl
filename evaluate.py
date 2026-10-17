@@ -55,3 +55,7 @@ if __name__ == "__main__":
     run_ppo()
     print("Фиксированный цикл:\n", summarize("fixed"))
     print("PPO:\n", summarize("ppo"))
+    pd.DataFrame({
+        "fixed": summarize("fixed"),
+        "ppo": summarize("ppo"),
+    }).to_csv("results/summary/single_intersection.csv")
