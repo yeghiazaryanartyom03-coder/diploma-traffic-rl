@@ -8,3 +8,5 @@ outputs/
 *.zip
 *.log
 tensorboard_logs/
+results/*.csv
+ppo_single.zip
