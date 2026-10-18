@@ -12,3 +12,9 @@ results/*.csv
 ppo_single.zip
 results/eval/
 ppo_single_conn*.csv
+thesis/*.aux
+*.log, *.toc
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
