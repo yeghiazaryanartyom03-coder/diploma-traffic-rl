@@ -18,3 +18,5 @@ thesis/*.aux
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+models/
+models/
