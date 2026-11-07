@@ -83,6 +83,8 @@ if __name__ == "__main__":
     ap.add_argument("--steps", type=int, default=300_000)
     ap.add_argument("--name", default=None)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--loads", nargs="+", default=TRAIN_LOADS,
+                    choices=TRAIN_LOADS, help="сценарии для обучения")
     args = ap.parse_args()
     name = args.name or f"ppo_mixed_{args.reward}"
 
@@ -91,11 +93,10 @@ if __name__ == "__main__":
     write_routes()
 
     reward_fn = reward_backlog if args.reward == "backlog" else None
-    env = MixedLoadEnv(TRAIN_LOADS, reward_fn=reward_fn, seed=args.seed)
+    env = MixedLoadEnv(args.loads, reward_fn=reward_fn, seed=args.seed)
     model = PPO("MlpPolicy", env, verbose=1, seed=args.seed,
                 tensorboard_log="tensorboard_logs/")
     model.learn(total_timesteps=args.steps, tb_log_name=name)
     model.save(f"models/{name}")
     env.close()
     print("Сохранено:", f"models/{name}.zip")
-    

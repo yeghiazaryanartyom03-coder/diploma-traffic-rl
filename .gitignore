@@ -13,10 +13,15 @@ ppo_single.zip
 results/eval/
 ppo_single_conn*.csv
 thesis/*.aux
-*.log, *.toc
+*.log
+*.toc
 *.out
 *.synctex.gz
 *.fls
 *.fdb_latexmk
-models/
+thesis/*.bbl
+thesis/*.bcf
+thesis/*.blg
+thesis/*.run.xml
+thesis/*-blx.bib
 models/
